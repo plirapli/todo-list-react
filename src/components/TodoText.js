@@ -1,13 +1,9 @@
 import React, {useState} from "react";
 
-function Todo({text, todo, todos, setTodos, completed}) {
+function Todo({text, todo, todos, setTodos, completed, color}) {
     const [edit, setEdit] = useState(false)
-
-    const [editText, setEditText] = useState(text)
-    const [editingText, setEditingText] = useState(editText)
-    // const [editedText, setEditedText] = useState('')
-    
-    
+    const [editingText, setEditingText] = useState(text)
+    const colors = ["light-blue", "green", "red", "dark", "white"]
 
     const editTextHandler = (e) => {
         setEditingText(e.target.textContent)
@@ -28,11 +24,19 @@ function Todo({text, todo, todos, setTodos, completed}) {
         setEdit(edited => !edited)
     }
 
-    const saveBtn = () => {
-        setEditText(editingText)
+    const changeColorHandler = (e) => {
         setTodos(todos.map(item => {
             if (item.id === todo.id) {
-                return {...item, text: editText}
+                return {...item, color: e.target.dataset.color}
+            }
+            return item
+        }))
+    }
+
+    const saveBtn = () => {
+        setTodos(todos.map(item => {
+            if (item.id === todo.id) {
+                return {...item, text: editingText}
             }
             return item
         }))
@@ -47,7 +51,7 @@ function Todo({text, todo, todos, setTodos, completed}) {
                     onInput={editTextHandler}
                     contentEditable={edit} 
                     className={`content textTodo ${completed ? "completed" : ""} ${edit ? "edit-mode" : ""}`}>
-                        {editText}
+                        {text}
                 </div>
                 <button 
                     onClick={checkBtn} 
@@ -58,7 +62,9 @@ function Todo({text, todo, todos, setTodos, completed}) {
             <div className="card-footer">
                 <button onClick={editBtn} className={`btn btn-edit ${edit ? 'hide' : ''}`}>Edit</button>
                 <button onClick={saveBtn} className={`btn btn-save ${edit ? 'show' : ''}`}>Save</button>
-                {/* <button onClick={backBtn} className={`btn btn-back ${edit ? 'show' : ''}`}>Back</button> */}
+                {colors.map(col => (
+                    <button data-color={col} onClick={changeColorHandler} className={`btn btn-color ${edit ? 'show' : ''} ${col}`}></button>
+                ))}
             </div>
         </div>
     );

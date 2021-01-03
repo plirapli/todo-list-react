@@ -42,6 +42,8 @@ function Todo({title, text, todo, todos, setTodos, completed, color}) {
                 </div>
                 <button onClick={deleteBtn} className="btn-del">&#10005;</button>    
             </div>
+
+            {/* Teks akan muncul ketika di expand */}
             {max && <TodoText text={text} todo={todo} todos={todos} setTodos={setTodos} completed={completed} color={color} />}
         </motion.li>
     );
