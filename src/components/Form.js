@@ -10,6 +10,8 @@ const Form = ({
     cardColor,
     setCardColor
 }) => {
+    const colors = ["light-blue", "green", "red", "dark", "white"]
+
     const inputTitleChange = (e) => {
         const textValue = e.target.value
         setInputTitle(textValue)
@@ -19,11 +21,10 @@ const Form = ({
         setInputText(textValue)
     }
 
-    const colorBlue = () => { setCardColor('light-blue') }
-    const colorGreen = () => { setCardColor('green') }
-    const colorRed = () => { setCardColor('red') }
-    const colorDark = () => { setCardColor('dark') }
-    const colorWhite = () => { setCardColor('white') }
+    const colorHandler = (e) => {
+        const color = e.target.dataset.color
+        setCardColor(color)
+    }
 
     const addTodos = (e) => {
         e.preventDefault()
@@ -43,7 +44,7 @@ const Form = ({
     }
 
     return(
-    <div className="form">
+    <>
         <form onSubmit={addTodos}>
             <div className={`note-text shadow ${cardColor}`}>
                 <input 
@@ -60,14 +61,16 @@ const Form = ({
                 <button type="submit">+</button>
             </div>
             <div className="input-color shadow">
-                <div onClick={colorBlue} className="light-blue"></div>
-                <div onClick={colorGreen} className="green"></div>
-                <div onClick={colorRed} className="red"></div>
-                <div onClick={colorDark} className="dark"></div>
-                <div onClick={colorWhite} className="white"></div>
+                {colors.map(color => (
+                    <div 
+                        onClick={colorHandler} 
+                        data-color={color} 
+                        className={`color-option ${color} ${cardColor === color ? 'active' : ''}`}>
+                    </div>
+                ))}
             </div>
         </form>
-    </div>
+    </>
     );
 }
 

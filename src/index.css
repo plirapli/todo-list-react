@@ -12,7 +12,7 @@ body {
   --white: #fff;
 
   margin: 0;
-  padding: 0 2em;
+  padding: 0 calc(2em - 6px) 2em 2em;
   min-height: 100vh;
   background-color: white;
 }
@@ -63,43 +63,6 @@ body {
 header {
   width: 100%;
   /* border: 2px solid red; */
-  display: flex;
-  align-items: center;
-  gap: 1.5em;
-  /* justify-content: space-between; */
-  /* margin-bottom: 1em; */
-}
-
-header h1 {
-  width: 320px;
-}
-
-.category {
-  text-align: center;
-  flex-grow: 2;
-  padding-right: 6px;
-  display: flex;
-  gap: 1.5em;
-  cursor: pointer;
-  /* border: 2px solid red; */
-}
-
-.option {
-  background-color: rgba(0, 0, 0, 0);
-  flex: 1 1 0;
-  border-radius: 8px;
-  padding: 8px 1em;
-  font-size: 0.8em;
-  transition: all 300ms ease;
-}
-
-.option:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.option.active {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .container {
@@ -118,11 +81,11 @@ form {
 }
 
 .note-text {
-  width: 320px;
+  width: 360px;
   border-radius: 1em;
   display: flex;
   flex-direction: column;
-  padding: 1.5em 1.5em;
+  padding: 1.5em;
   gap: 12px;
   position: relative;
   align-items: center;
@@ -163,7 +126,7 @@ form {
 .note-text textarea {
   background-color: transparent;
   width: 100%;
-  min-height: 300px;
+  min-height: 360px;
   border: none;
   outline: none;
   resize: none;
@@ -195,28 +158,64 @@ form button:hover {
 
 .input-color {
   display: flex;
-  padding: 12px 0;
+  padding: 12px;
+  gap: 12px;
   background-color: white;
   border-radius: 12px;
-  justify-content: space-evenly;
 }
 
-.input-color div {
-  border: 2px solid black;
+.color-option {
+  flex: 1 1 0;
+  border: 3px solid black;
   cursor: pointer;
   padding: 1em;
   border-radius: 8px;
   transition: all 200ms ease-out;
 }
 
-.input-color div:hover {
-  padding: 1em 1.5em;
+.color-option:hover,
+.color-option.active {
+  padding: 1em 2em;
 }
 
 /* Todos */
-ul {
-  /* max-width: 60%; */
+.todolist {
   flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  overflow: hidden;
+  /* border: 2px solid red; */
+}
+
+.category {
+  text-align: center;
+  padding-right: 6px;
+  display: flex;
+  gap: 1.5em;
+  cursor: pointer;
+  /* border: 2px solid red; */
+}
+
+.option {
+  background-color: rgba(0, 0, 0, 0);
+  flex: 1 1 0;
+  border-radius: 8px;
+  padding: 8px 1em;
+  font-size: 0.8em;
+  transition: all 300ms ease;
+}
+
+.option:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.option.active {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+ul {
   margin: 0;
   padding: 0;
   padding-right: 6px;
@@ -224,7 +223,6 @@ ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 li {
@@ -254,11 +252,12 @@ li {
 
 .title {
   cursor: pointer;
-  padding: 12px 1em;
+  padding: 8px 1em;
   flex-grow: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   overflow: hidden;
   transition: all 300ms ease;
 }
@@ -269,9 +268,13 @@ li {
 
 .title h3 {
   margin: 0;
-  flex-grow: 2;
   /* transition: all 300ms ease; */
   overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title h3.max {
+  text-overflow: clip;
   word-wrap: break-word;
 }
 
@@ -298,7 +301,6 @@ li {
 }
 
 .card-body-wrapper {
-  max-height: 100vh;
   padding: 1em 1em;
   transition: all 300ms ease;
   display: flex;
@@ -387,13 +389,18 @@ li {
 }
 
 .card-footer {
-  font-size: 16px;
+  font-size: 12px;
   display: flex;
   gap: 12px;
 }
 
+.btn-footer {
+  padding: 8px;
+}
+
 .btn-edit,
 .btn-save {
+  padding: 8px 18px;
   background-color: transparent;
 }
 
@@ -408,11 +415,90 @@ li {
   align-items: center;
 }
 
-.btn-color {
-  padding: 0 14px;
-}
-
 .btn-save.show,
 .btn-color.show {
   display: flex;
+}
+
+.btn-color {
+  width: 40px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 960px) {
+  header {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  header h1 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .category {
+    width: 100%;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4em;
+  }
+
+  form {
+    gap: 1.5em;
+    flex-direction: row;
+    padding-right: 6px;
+  }
+
+  .note-text {
+    width: 100%;
+  }
+
+  .input-color {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .color-option:hover,
+  .color-option.active {
+    padding: 2em 1em;
+  }
+
+  .todolist {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  body {
+    padding: 0 calc(1em - 6px) 1em 1em;
+  }
+
+  .container {
+    gap: 1.5em;
+  }
+
+  form {
+    gap: 1em;
+  }
+
+  .note-text {
+    padding: 1em;
+  }
+
+  .note-text textarea {
+    margin-bottom: 0;
+  }
+
+  form button {
+    position: relative;
+    width: 100%;
+    border: 3px solid #000;
+    border-radius: 12px;
+    font-size: 2rem;
+    padding: 0 1rem;
+    transform: translateY(0);
+  }
 }

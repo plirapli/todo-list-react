@@ -33,14 +33,18 @@ function App() {
 
   return (
     <div className="App">
-      <Header setTodoType={setTodoType} todoType={todoType} />
+      <Header />
       <div className="container">
         <Form 
           inputTitle={inputTitle} setInputTitle={setInputTitle}
           inputText={inputText} setInputText={setInputText} 
           todos={todos} setTodos={setTodos} 
           cardColor={cardColor} setCardColor={setCardColor} />
-        <TodoList todos={todos} setTodos={setTodos} filteredTodos={filteredTodos} />
+        <TodoList 
+          setTodoType={setTodoType} todoType={todoType}
+          todos={todos} setTodos={setTodos} 
+          filteredTodos={filteredTodos} 
+        />
       </div>
     </div>
   );
