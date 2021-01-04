@@ -10,7 +10,7 @@ const Form = ({
     cardColor,
     setCardColor
 }) => {
-    const colors = ["light-blue", "green", "red", "dark", "white"]
+    const colors = ["light-blue", "pink", "green", "yellow", "red", "dark", "white"]
 
     const inputTitleChange = (e) => {
         const textValue = e.target.value
@@ -60,14 +60,16 @@ const Form = ({
                     placeholder="What to do..."></textarea>
                 <button type="submit">+</button>
             </div>
-            <div className="input-color shadow">
-                {colors.map(color => (
-                    <div 
-                        onClick={colorHandler} 
-                        data-color={color} 
-                        className={`color-option ${color} ${cardColor === color ? 'active' : ''}`}>
-                    </div>
-                ))}
+            <div className="input-color-wrapper shadow">
+                <div className="input-color">
+                    {colors.map(color => (
+                        <div 
+                            onClick={colorHandler} 
+                            data-color={color} 
+                            className={`color-option ${color} ${cardColor === color ? 'active' : ''}`}>
+                        </div>
+                    ))}
+                </div>
             </div>
         </form>
     </>

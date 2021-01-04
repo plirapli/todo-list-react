@@ -7,9 +7,11 @@ body {
   --darkblue: #2e475f;
   --lightblue: #0df1fd;
   --green: #37c294;
+  --yellow: #fdfd96;
   --red: #b31433;
   --dark: #3b4c5f;
   --white: #fff;
+  --pink: #ffd1dc;
 
   margin: 0;
   padding: 0 calc(2em - 6px) 2em 2em;
@@ -20,27 +22,29 @@ body {
 .light-blue {
   background-color: var(--lightblue);
 }
-.dark-blue {
-  color: #fff;
-  background-color: var(--darkblue);
-}
 .red {
   background-color: var(--red);
-  color: #fff;
 }
-
 .green {
   background-color: var(--green);
-  color: #fff;
 }
-
+.yellow {
+  background-color: var(--yellow);
+}
+.pink {
+  background-color: var(--pink);
+}
 .dark {
   background-color: var(--dark);
-  color: #fff;
 }
 .white {
   background-color: var(--white);
-  /* border: 2px solid black; */
+}
+
+.red,
+.green,
+.dark {
+  color: #fff;
 }
 
 .dark button,
@@ -81,7 +85,7 @@ form {
 }
 
 .note-text {
-  width: 360px;
+  width: 400px;
   border-radius: 1em;
   display: flex;
   flex-direction: column;
@@ -156,12 +160,14 @@ form button:hover {
   color: #1f232a;
 }
 
+.input-color-wrapper {
+  border-radius: 12px;
+  padding: 12px;
+}
+
 .input-color {
   display: flex;
-  padding: 12px;
   gap: 12px;
-  background-color: white;
-  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -169,15 +175,15 @@ form button:hover {
   flex: 1 1 0;
   border: 3px solid black;
   cursor: pointer;
-  padding: 1em;
+  height: 43px;
+  padding: 12px;
   border-radius: 8px;
   transition: all 200ms ease-out;
 }
 
-.color-option:hover,
-.color-option.active {
-  padding: 1em 2em;
-}
+/* .color-option.active {
+  border-radius: 50%;
+} */
 
 /* Todos */
 .todolist {
@@ -191,16 +197,21 @@ form button:hover {
 
 .category {
   text-align: center;
-  padding-right: 6px;
   display: flex;
   gap: 1.5em;
   cursor: pointer;
+  overflow-x: scroll;
   /* border: 2px solid red; */
 }
 
-.option {
-  background-color: rgba(0, 0, 0, 0);
+.option-wrapper {
   flex: 1 1 0;
+  min-width: 110px;
+  padding: 0 6px 6px 0;
+}
+
+.option {
+  background-color: transparent;
   border-radius: 8px;
   padding: 8px 1em;
   font-size: 0.8em;
@@ -243,6 +254,8 @@ li {
   --green: #2c9b76;
   --dark: #2f3d4c;
   --white: #ccc;
+  --yellow: #e4e487;
+  --pink: #e6bcc6;
 
   border-bottom: 3px solid #000;
   display: flex;
@@ -395,8 +408,8 @@ li {
   gap: 12px;
 }
 
-.btn-footer {
-  padding: 8px;
+.btn-edit.hide {
+  display: none;
 }
 
 .btn-edit,
@@ -405,8 +418,15 @@ li {
   background-color: transparent;
 }
 
-.btn-edit.hide {
-  display: none;
+.btn-color-wrapper {
+  display: flex;
+  gap: 12px;
+  overflow-x: scroll;
+}
+
+.btn-color {
+  min-width: 40px;
+  font-size: 1rem;
 }
 
 .btn-save,
@@ -419,11 +439,6 @@ li {
 .btn-save.show,
 .btn-color.show {
   display: flex;
-}
-
-.btn-color {
-  width: 40px;
-  font-size: 1rem;
 }
 
 @media only screen and (max-width: 960px) {
@@ -454,21 +469,20 @@ li {
   }
 
   .note-text {
-    width: 100%;
+    flex-grow: 2;
   }
 
   .input-color {
+    height: 487px;
     flex-direction: column;
-    padding: 12px;
   }
 
-  /* .color-option {
-    padding: 12px;
-  } */
+  .color-option {
+    width: 52px;
+  }
 
-  .color-option:hover,
   .color-option.active {
-    padding: 2em 1em;
+    flex-grow: 2;
   }
 
   .todolist {
@@ -491,6 +505,7 @@ li {
   }
 
   .note-text {
+    width: 100%;
     padding: 1em;
   }
 
@@ -510,11 +525,20 @@ li {
 
   .input-color {
     flex-direction: row;
+    height: initial;
+    overflow-x: scroll;
   }
 
-  .color-option:hover,
+  .color-option {
+    padding: 0;
+    height: 48px;
+    min-width: 48px;
+    position: relative;
+  }
+
   .color-option.active {
-    padding: 1em 1.5em;
+    min-width: 80px;
+    flex-grow: 2;
   }
 
   .category {
@@ -523,5 +547,17 @@ li {
 
   .option {
     padding: 8px;
+  }
+
+  .card-body {
+    gap: 12px;
+  }
+
+  .title {
+    padding: 8px 12px;
+  }
+
+  .card-body-wrapper {
+    padding: 1em 12px;
   }
 }

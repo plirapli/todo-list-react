@@ -13,7 +13,9 @@ const TodoList = ({todos, setTodos, filteredTodos, todoType, setTodoType}) => {
       <div className="todolist">
         <div className="category">
           {types.map(type => (
+            <div className="option-wrapper">
               <div onClick={typeHandler} className={`option shadow ${todoType === type ? 'active' : ''}`}>{type}</div>
+            </div>
           ))}
         </div>
         <ul>

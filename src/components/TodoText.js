@@ -3,7 +3,7 @@ import React, {useState} from "react";
 function Todo({text, todo, todos, setTodos, completed}) {
     const [edit, setEdit] = useState(false)
     const [editingText, setEditingText] = useState(text)
-    const colors = ["light-blue", "green", "red", "dark", "white"]
+    const colors = ["light-blue", "pink", "green", "yellow", "red", "dark", "white"]
 
     const editTextHandler = (e) => {
         setEditingText(e.target.textContent)
@@ -62,14 +62,16 @@ function Todo({text, todo, todos, setTodos, completed}) {
             <div className="card-footer">
                 <button onClick={editBtn} className={`btn btn-footer btn-edit ${edit ? 'hide' : ''}`}>Edit</button>
                 <button onClick={saveBtn} className={`btn btn-footer btn-save ${edit ? 'show' : ''}`}>Save</button>
-                {colors.map(col => (
-                    <button 
-                        data-color={col} 
-                        onClick={changeColorHandler} 
-                        className={`btn btn-footer btn-color ${edit ? 'show' : ''} ${col}`}>
-                            <i className={`todo-${col === todo.color ? "check" : ""}`}></i>
-                    </button>
-                ))}
+                <div className="btn-color-wrapper">
+                    {colors.map(col => (
+                        <button 
+                            data-color={col} 
+                            onClick={changeColorHandler} 
+                            className={`btn btn-footer btn-color ${edit ? 'show' : ''} ${col}`}>
+                                <i className={`todo-${col === todo.color ? "check" : ""}`}></i>
+                        </button>
+                    ))}
+                </div>
             </div>
         </div>
     );
