@@ -162,6 +162,7 @@ form button:hover {
   gap: 12px;
   background-color: white;
   border-radius: 12px;
+  overflow: hidden;
 }
 
 .color-option {
@@ -461,6 +462,10 @@ li {
     padding: 12px;
   }
 
+  /* .color-option {
+    padding: 12px;
+  } */
+
   .color-option:hover,
   .color-option.active {
     padding: 2em 1em;
@@ -477,11 +482,12 @@ li {
   }
 
   .container {
-    gap: 1.5em;
+    gap: 3em;
   }
 
   form {
     gap: 1em;
+    flex-direction: column;
   }
 
   .note-text {
@@ -500,5 +506,22 @@ li {
     font-size: 2rem;
     padding: 0 1rem;
     transform: translateY(0);
+  }
+
+  .input-color {
+    flex-direction: row;
+  }
+
+  .color-option:hover,
+  .color-option.active {
+    padding: 1em 1.5em;
+  }
+
+  .category {
+    gap: 1em;
+  }
+
+  .option {
+    padding: 8px;
   }
 }
