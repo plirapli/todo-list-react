@@ -200,7 +200,6 @@ form button:hover {
   display: flex;
   gap: 1.5em;
   cursor: pointer;
-  overflow-x: scroll;
   /* border: 2px solid red; */
 }
 
@@ -542,6 +541,7 @@ li {
   }
 
   .category {
+    overflow-x: scroll;
     gap: 1em;
   }
 
