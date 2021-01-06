@@ -14,7 +14,7 @@ body {
   --pink: #ffd1dc;
 
   margin: 0;
-  padding: 0 calc(2em - 6px) 2em 2em;
+  padding: 0 calc(2em - 4px) 2em 2em;
   min-height: 100vh;
   background-color: white;
 }
@@ -55,7 +55,7 @@ body {
 
 .shadow {
   border: 3px solid black;
-  box-shadow: 6px 6px 0px 0px #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
 }
 
 .App {
@@ -66,21 +66,24 @@ body {
 
 header {
   width: 100%;
-  /* border: 2px solid red; */
+}
+
+header h1 {
+  margin: 1rem auto;
 }
 
 .container {
   width: 100%;
   border: 2px solid white;
   display: flex;
-  gap: 1.5em;
+  /* gap: 1.5em; */
 }
 
 /* Todo Form */
 form {
   display: flex;
   flex-direction: column;
-  gap: 2.5em;
+  margin-right: 1.5rem;
   /* border: 2px solid red; */
 }
 
@@ -89,38 +92,19 @@ form {
   border-radius: 1em;
   display: flex;
   flex-direction: column;
+  margin-bottom: 2.5rem;
   padding: 1.5em;
-  gap: 12px;
   position: relative;
   align-items: center;
   transition: all 300ms ease;
 }
 
-.dark input,
-.dark textarea,
-.green input,
-.green textarea,
-.red input,
-.red textarea {
-  color: #fff;
-}
-
-.note-text input::placeholder,
-.note-text textarea::placeholder {
-  color: black;
-  opacity: 0.4;
-}
-
-.note-text.dark input::placeholder,
-.note-text.dark textarea::placeholder {
-  color: white;
-  opacity: 0.3;
-}
-
 .note-text input {
   background-color: transparent;
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 12px;
   padding-bottom: 8px;
   border: 0;
   border-bottom: 1px solid black;
@@ -130,6 +114,7 @@ form {
 .note-text textarea {
   background-color: transparent;
   width: 100%;
+  font-size: 1em;
   min-height: 360px;
   border: none;
   outline: none;
@@ -167,7 +152,7 @@ form button:hover {
 
 .input-color {
   display: flex;
-  gap: 12px;
+  /* gap: 12px; */
   overflow: hidden;
 }
 
@@ -177,20 +162,46 @@ form button:hover {
   cursor: pointer;
   height: 43px;
   padding: 12px;
+  margin-right: 12px;
   border-radius: 8px;
   transition: all 200ms ease-out;
+}
+
+.color-option:last-child {
+  margin: 0;
 }
 
 /* .color-option.active {
   border-radius: 50%;
 } */
 
+.dark input,
+.dark textarea,
+.green input,
+.green textarea,
+.red input,
+.red textarea {
+  color: #fff;
+}
+
+.note-text input::placeholder,
+.note-text textarea::placeholder {
+  color: black;
+  opacity: 0.4;
+}
+
+.note-text.dark input::placeholder,
+.note-text.dark textarea::placeholder {
+  color: white;
+  opacity: 0.3;
+}
+
 /* Todos */
 .todolist {
   flex-grow: 2;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  /* gap: 1.5em; */
   overflow: hidden;
   /* border: 2px solid red; */
 }
@@ -198,16 +209,21 @@ form button:hover {
 .category {
   text-align: center;
   display: flex;
-  gap: 1.5em;
+  /* gap: 1.5em; */
+  margin-bottom: 1.5rem;
   cursor: pointer;
-  overflow-x: scroll;
   /* border: 2px solid red; */
 }
 
 .option-wrapper {
   flex: 1 1 0;
   min-width: 110px;
-  padding: 0 6px 6px 0;
+  padding: 0 4px 4px 0;
+  margin-right: 1rem;
+}
+
+.option-wrapper:last-child {
+  margin-right: 0;
 }
 
 .option {
@@ -243,7 +259,7 @@ li {
   border-radius: 12px;
   display: inline-block;
   padding: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
   overflow: hidden;
   transition: background-color 300ms ease;
 }
@@ -266,12 +282,12 @@ li {
 
 .title {
   cursor: pointer;
-  padding: 8px 1em;
+  padding: 8px 1rem;
   flex-grow: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  /* gap: 8px; */
   overflow: hidden;
   transition: all 300ms ease;
 }
@@ -285,6 +301,7 @@ li {
   /* transition: all 300ms ease; */
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-right: 8px;
 }
 
 .title h3.max {
@@ -315,11 +332,11 @@ li {
 }
 
 .card-body-wrapper {
-  padding: 1em 1em;
+  padding: 1rem;
   transition: all 300ms ease;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  /* gap: 16px; */
 }
 
 .card-body-wrapper.min {
@@ -332,7 +349,8 @@ li {
   display: flex;
   /* justify-content: flex-start; */
   align-items: center;
-  gap: 2em;
+  margin-bottom: 1rem;
+  /* gap: 2em; */
   opacity: 1;
   transition: all 300ms ease;
 }
@@ -352,7 +370,8 @@ li {
   flex-grow: 1;
   word-wrap: break-word;
   overflow-x: hidden;
-  padding: 6px 0;
+  margin-right: 1rem;
+  /* border: 2px solid red; */
   font-size: 16px;
   line-height: 1.4;
   transition: all 300ms ease;
@@ -389,15 +408,6 @@ li {
   align-items: center;
 }
 
-.btn-check:hover {
-  background-color: #fff;
-  color: #fff;
-}
-
-.btn-check:hover i {
-  color: #000;
-}
-
 .btn i {
   font-weight: 700;
 }
@@ -405,7 +415,7 @@ li {
 .card-footer {
   font-size: 12px;
   display: flex;
-  gap: 12px;
+  /* gap: 12px; */
 }
 
 .btn-edit.hide {
@@ -414,19 +424,25 @@ li {
 
 .btn-edit,
 .btn-save {
-  padding: 8px 18px;
+  margin-right: 12px;
+  padding: 8px 12px;
   background-color: transparent;
 }
 
 .btn-color-wrapper {
+  flex-grow: 2;
   display: flex;
-  gap: 12px;
-  overflow-x: scroll;
 }
 
 .btn-color {
-  min-width: 40px;
+  margin-right: 12px;
+  flex: 1 1 0;
+  max-width: 40px;
   font-size: 1rem;
+}
+
+.btn-color:last-child {
+  margin-right: 0;
 }
 
 .btn-save,
@@ -442,14 +458,8 @@ li {
 }
 
 @media only screen and (max-width: 960px) {
-  header {
-    flex-direction: column;
-    gap: 0;
-  }
-
   header h1 {
     text-align: center;
-    width: 100%;
   }
 
   .category {
@@ -459,16 +469,20 @@ li {
   .container {
     display: flex;
     flex-direction: column;
-    gap: 2.4em;
+    /* gap: 2.4em; */
   }
 
   form {
-    gap: 1.5em;
+    /* gap: 1.5em; */
     flex-direction: row;
     padding-right: 6px;
+    margin-bottom: 4rem;
+    margin-right: 0;
   }
 
   .note-text {
+    margin-bottom: 0;
+    margin-right: 1.5rem;
     flex-grow: 2;
   }
 
@@ -478,7 +492,9 @@ li {
   }
 
   .color-option {
-    width: 52px;
+    margin-bottom: 12px;
+    margin-right: 0;
+    width: 54px;
   }
 
   .color-option.active {
@@ -492,25 +508,23 @@ li {
 
 @media only screen and (max-width: 640px) {
   body {
-    padding: 0 calc(1em - 6px) 1em 1em;
-  }
-
-  .container {
-    gap: 3em;
+    padding: 0 calc(1em - 4px) 1em 1em;
   }
 
   form {
-    gap: 1em;
     flex-direction: column;
+    margin-bottom: 3rem;
   }
 
   .note-text {
+    margin-right: 0;
+    margin-bottom: 24px;
     width: 100%;
     padding: 1em;
   }
 
   .note-text textarea {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
   }
 
   form button {
@@ -530,6 +544,8 @@ li {
   }
 
   .color-option {
+    margin-bottom: 0;
+    margin-right: 12px;
     padding: 0;
     height: 48px;
     min-width: 48px;
@@ -542,22 +558,32 @@ li {
   }
 
   .category {
-    gap: 1em;
+    margin-bottom: 1rem;
+    overflow-x: scroll;
+    /* gap: 1em; */
   }
 
   .option {
     padding: 8px;
   }
 
-  .card-body {
-    gap: 12px;
+  li {
+    margin-bottom: 1rem;
   }
 
-  .title {
-    padding: 8px 12px;
+  .content.edit-mode {
+    padding: 6px 0;
+    border: 0;
+    border-bottom: 3px solid #000;
+    border-radius: 0;
   }
 
-  .card-body-wrapper {
-    padding: 1em 12px;
+  .btn-color-wrapper {
+    overflow-x: scroll;
+  }
+
+  .btn-color {
+    max-width: 40px;
+    min-width: 40px;
   }
 }
