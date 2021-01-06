@@ -47,8 +47,11 @@ function App() {
 
   useEffect(() => {
     getTodosFromLocalStorage()
+  }, [])
+
+  useEffect(() => {
     filterHandler()
-  }, [todos, todoType]) 
+  }, [todos, todoType])
 
   return (
     <div className="App">
