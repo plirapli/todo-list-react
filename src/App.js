@@ -8,10 +8,28 @@ import TodoList from "./components/TodoList";
 function App() {
   const [inputTitle, setInputTitle] = useState("")
   const [inputText, setInputText] = useState("")
-  const [todos, setTodos] = useState([])
+  const [todos, setTodosState] = useState([])
   const [todoType, setTodoType] = useState('all')
   const [filteredTodos, setFilteredTodos] = useState([])
   const [cardColor, setCardColor] = useState("white")
+
+  const getTodosFromLocalStorage = () => {
+    const savedTodos = localStorage.getItem('todo_lists')
+
+    if (savedTodos) {
+      try {
+        const parse = JSON.parse(savedTodos)
+        setTodosState(parse)
+      } catch (error) {
+        alert("Error while trying to read localStorage")
+      }
+    }
+  }
+
+  const setTodos = (allItem) => {
+    setTodosState(allItem)
+    localStorage.setItem('todo_lists', JSON.stringify(allItem))
+  }
 
   const filterHandler = () => {
     switch (todoType) {
@@ -28,8 +46,12 @@ function App() {
   }
 
   useEffect(() => {
+    getTodosFromLocalStorage()
+  }, [])
+
+  useEffect(() => {
     filterHandler()
-  }, [todos, todoType]) 
+  }, [todos, todoType])
 
   return (
     <div className="App">
