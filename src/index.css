@@ -408,15 +408,6 @@ li {
   align-items: center;
 }
 
-.btn-check:hover {
-  background-color: #fff;
-  color: #fff;
-}
-
-.btn-check:hover i {
-  color: #000;
-}
-
 .btn i {
   font-weight: 700;
 }
