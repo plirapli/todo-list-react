@@ -20,9 +20,7 @@ function Todo({text, todo, todos, setTodos, completed}) {
         }))
     }
 
-    const editBtn = () => {
-        setEdit(edited => !edited)
-    }
+    const editBtn = () => { setEdit(edited => !edited) }
 
     const changeColorHandler = (e) => {
         setTodos(todos.map(item => {
@@ -55,20 +53,24 @@ function Todo({text, todo, todos, setTodos, completed}) {
                 </div>
                 <button 
                     onClick={checkBtn} 
-                    className="btn btn-check">
-                        <i className={completed ? "todo-check" : "not-checked"}></i>
+                    className={`btn btn-check ${completed ? 'show' : ''}`}>
+                        <i className="todo-icon-check"></i>
                 </button>    
             </div>
             <div className="card-footer">
-                <button onClick={editBtn} className={`btn btn-footer btn-edit ${edit ? 'hide' : ''}`}>Edit</button>
-                <button onClick={saveBtn} className={`btn btn-footer btn-save ${edit ? 'show' : ''}`}>Save</button>
+                <button onClick={editBtn} className={`btn btn-footer btn-edit ${edit ? 'hide' : ''}`}>
+                    <i className="todo-icon-edit-2"></i>
+                </button>
+                <button onClick={saveBtn} className={`btn btn-footer btn-save ${edit ? 'show' : ''}`}>
+                    <i className="todo-icon-save"></i>
+                </button>
                 <div className="btn-color-wrapper">
                     {colors.map(col => (
                         <button 
                             data-color={col} 
                             onClick={changeColorHandler} 
                             className={`btn btn-footer btn-color ${edit ? 'show' : ''} ${col}`}>
-                                <i className={`todo-${col === todo.color ? "check" : ""}`}></i>
+                                <i className={`todo-icon-${col === todo.color ? "check" : ""}`}></i>
                         </button>
                     ))}
                 </div>

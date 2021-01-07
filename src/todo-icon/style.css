@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'todoicon';
-  src:  url('fonts/todoicon.eot?nhc3wv');
-  src:  url('fonts/todoicon.eot?nhc3wv#iefix') format('embedded-opentype'),
-    url('fonts/todoicon.ttf?nhc3wv') format('truetype'),
-    url('fonts/todoicon.woff?nhc3wv') format('woff'),
-    url('fonts/todoicon.svg?nhc3wv#todoicon') format('svg');
+  src:  url('fonts/todoicon.eot?hdza5o');
+  src:  url('fonts/todoicon.eot?hdza5o#iefix') format('embedded-opentype'),
+    url('fonts/todoicon.ttf?hdza5o') format('truetype'),
+    url('fonts/todoicon.woff?hdza5o') format('woff'),
+    url('fonts/todoicon.svg?hdza5o#todoicon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="todo-"], [class*=" todo-"] {
+[class^="todo-icon-"], [class*=" todo-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'todoicon' !important;
   speak: never;
@@ -25,27 +25,66 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.todo-check:before {
+.todo-icon-bookmark:before {
+  content: "\e908";
+}
+.todo-icon-calendar:before {
+  content: "\e909";
+}
+.todo-icon-check:before {
   content: "\e900";
 }
-.todo-check-circle:before {
+.todo-icon-check-circle:before {
   content: "\e901";
 }
-.todo-check-square:before {
+.todo-icon-check-square:before {
   content: "\e902";
 }
-.todo-chevron-down:before {
+.todo-icon-chevron-down:before {
   content: "\e903";
 }
-.todo-chevron-up:before {
+.todo-icon-chevron-up:before {
   content: "\e904";
 }
-.todo-edit-2:before {
+.todo-icon-clock:before {
+  content: "\e90a";
+}
+.todo-icon-edit:before {
+  content: "\e90b";
+}
+.todo-icon-edit-2:before {
   content: "\e905";
 }
-.todo-edit-3:before {
+.todo-icon-edit-3:before {
   content: "\e906";
 }
-.todo-heart:before {
+.todo-icon-grid:before {
+  content: "\e90c";
+}
+.todo-icon-hash:before {
+  content: "\e90d";
+}
+.todo-icon-heart:before {
   content: "\e907";
+}
+.todo-icon-maximize-2:before {
+  content: "\e90e";
+}
+.todo-icon-minimize-2:before {
+  content: "\e90f";
+}
+.todo-icon-save:before {
+  content: "\e910";
+}
+.todo-icon-server:before {
+  content: "\e911";
+}
+.todo-icon-tag:before {
+  content: "\e912";
+}
+.todo-icon-trash:before {
+  content: "\e913";
+}
+.todo-icon-x:before {
+  content: "\e914";
 }
